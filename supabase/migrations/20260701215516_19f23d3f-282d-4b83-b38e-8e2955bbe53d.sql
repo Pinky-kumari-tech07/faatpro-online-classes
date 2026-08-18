@@ -1,0 +1,2 @@
+CREATE POLICY "msg_update_own" ON public.messages FOR UPDATE TO authenticated USING (sender_id = auth.uid()) WITH CHECK (sender_id = auth.uid());
+CREATE POLICY "msg_delete_own" ON public.messages FOR DELETE TO authenticated USING (sender_id = auth.uid());

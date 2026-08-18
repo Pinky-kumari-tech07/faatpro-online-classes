@@ -1,0 +1,10 @@
+GRANT EXECUTE ON FUNCTION public.is_super_admin(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_workspace_staff_anywhere(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_admin_or_staff_anywhere(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_admin_anywhere(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.has_any_workspace_role(uuid, uuid, public.app_role[]) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.has_workspace_role(uuid, uuid, public.app_role) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_workspace_member(uuid, uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_course_instructor(uuid, uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_any_course_instructor(uuid) TO anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.is_enrolled(uuid, uuid) TO anon, authenticated;

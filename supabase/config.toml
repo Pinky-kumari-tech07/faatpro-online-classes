@@ -1,0 +1,7 @@
+project_id = "ukwcuxdfoaolvfaimxhd"
+
+[functions.smtp-test]
+verify_jwt = true
+
+[functions.create-student-account]
+verify_jwt = true
