@@ -1,0 +1,2 @@
+CREATE POLICY "profiles_read_public_instructors" ON public.profiles FOR SELECT TO anon, authenticated USING (EXISTS (SELECT 1 FROM public.courses c WHERE c.instructor_id = profiles.id AND c.status = 'published' AND c.visibility = 'public' AND c.deleted_at IS NULL));
+GRANT SELECT ON public.profiles TO anon;

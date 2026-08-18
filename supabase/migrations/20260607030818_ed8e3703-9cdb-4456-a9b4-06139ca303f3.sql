@@ -1,0 +1,1 @@
+CREATE POLICY "cc_staff_anywhere_read" ON public.course_categories FOR SELECT USING (public.is_workspace_staff_anywhere(auth.uid()));

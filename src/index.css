@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 240 20% 99%;
+    --foreground: 224 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 30% 12%;
+    --surface-muted: 240 20% 97%;
+
+    /* Brand — FAATPRO navy + pink */
+    --primary: 228 59% 26%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 228 70% 95%;
+
+    --secondary: 240 20% 96%;
+    --secondary-foreground: 224 30% 18%;
+
+    --muted: 240 18% 96%;
+    --muted-foreground: 224 12% 46%;
+
+    --accent: 347 78% 56%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 347 85% 95%;
+
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 30 40% 15%;
+
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 92%;
+    --input: 230 20% 92%;
+    --ring: 228 59% 26%;
+
+    --radius: 0.875rem;
+
+    --gradient-brand: linear-gradient(135deg, hsl(228 59% 26%), hsl(347 78% 56%));
+    --gradient-accent: linear-gradient(135deg, hsl(347 78% 56%), hsl(228 59% 36%));
+    --shadow-sm: 0 1px 2px hsl(228 40% 12% / 0.05);
+    --shadow-md: 0 6px 24px -8px hsl(228 59% 26% / 0.18);
+    --shadow-lg: 0 24px 48px -16px hsl(347 60% 30% / 0.22);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 224 30% 7%;
+    --foreground: 240 20% 96%;
+    --card: 224 28% 9%;
+    --card-foreground: 240 20% 96%;
+    --popover: 224 28% 9%;
+    --popover-foreground: 240 20% 96%;
+    --surface-muted: 224 25% 11%;
+    --primary: 228 65% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 228 40% 18%;
+    --secondary: 224 22% 14%;
+    --secondary-foreground: 240 20% 96%;
+    --muted: 224 22% 14%;
+    --muted-foreground: 224 10% 65%;
+    --accent: 347 82% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 20% 18%;
+    --input: 224 20% 18%;
+    --ring: 347 82% 62%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body.app-shell-active,
+  body.app-shell-active #root {
+    overflow: hidden;
+    height: 100dvh;
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-brand { background: var(--gradient-brand); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .shadow-soft { box-shadow: var(--shadow-md); }
+  .shadow-glow { box-shadow: var(--shadow-lg); }
+  .pb-safe-bottom-nav {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
